@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:vue/vue3-recommended",
+    "plugin:nuxt/recommended",
+    "prettier"
+  ],
+  "rules": {
+    // opinionated vue rules
+    "vue/define-emits-declaration": "warn",
+    "vue/define-props-declaration": "warn",
+    // overrides over vue3-recommended preset
+    "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
+    "vue/no-v-html": "off",
+    // overrides over recommended typescript preset
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-explicit-any": "warn",
+    // overrides defaults
+    "no-console": "off"
+  }
+}

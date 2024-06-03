@@ -1,0 +1,45 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "nuxt typecheck",
+    "format": "prettier --check . --ignore-path .gitignore --ignore-path .prettierignore",
+    "format:fix": "prettier --write --list-different . --ignore-path .gitignore --ignore-path .prettierignore",
+    "lint": "eslint . --ext .vue,.mjs,.js,.ts --ignore-path .gitignore --ignore-path .eslintignore",
+    "lint:fix": "npm run lint --fix",
+    "clean": "rimraf .nuxt dist .output .netlify node_modules",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "form-data-json-convert": "^2.2.2",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.5",
+    "lodash-es": "^4.17.21",
+    "nuxt": "^3.11.2",
+    "pristinejs": "^1.1.0",
+    "qs": "^6.12.1",
+    "tailwindcss": "^3.4.3",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@nuxtjs/apollo": "^5.0.0-alpha.14",
+    "@nuxtjs/eslint-config-typescript": "^12.1.0",
+    "@nuxtjs/tailwindcss": "^6.12.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-vue": "^9.26.0",
+    "husky": "^9.0.10",
+    "prettier": "^3.3.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "rimraf": "^5.0.7"
+  }
+}
