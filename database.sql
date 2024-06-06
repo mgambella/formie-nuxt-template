@@ -307,7 +307,7 @@ CREATE TABLE `content` (
   `dateCreated` datetime NOT NULL,
   `dateUpdated` datetime NOT NULL,
   `uid` char(36) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT '0',
-  `field_plainText_kukrbgdv` text COLLATE utf8mb3_unicode_ci,
+  `field_plainText_kukrbgdv` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_rnydhkxnoawjsejdcejskjzswcrpwsymidxo` (`elementId`,`siteId`),
   KEY `idx_wyxzveoscgbciphjbmahqmdcsqgnqjejddfu` (`siteId`),
@@ -450,7 +450,7 @@ CREATE TABLE `elements` (
   CONSTRAINT `fk_hbioprmyyyporsvemvaevhzaubogsauzjyzw` FOREIGN KEY (`fieldLayoutId`) REFERENCES `fieldlayouts` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_kowkkdkjzfrzomrxjvvtmcaztplpocuugvxo` FOREIGN KEY (`canonicalId`) REFERENCES `elements` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_siigegthidtppinkzzxtvcaifdahpgrrwhzs` FOREIGN KEY (`draftId`) REFERENCES `drafts` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -478,7 +478,7 @@ CREATE TABLE `elements_sites` (
   KEY `idx_uccttgnelvunuetujcmkgrzvgmuzbfuwxgzq` (`uri`,`siteId`),
   CONSTRAINT `fk_ifgwtuzikdnnzotzrhpsngbesrncqpercznw` FOREIGN KEY (`siteId`) REFERENCES `sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_jzuonxrcyodohdfeskfjllkgophlwfblkwdb` FOREIGN KEY (`elementId`) REFERENCES `elements` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -741,7 +741,7 @@ CREATE TABLE `fmc_contactform` (
   KEY `fk_sfznemleofifqyvlenpywuizkbnxaafuryxc` (`siteId`),
   CONSTRAINT `fk_owixrokzbfzfqbzxolvpzodikcpbhgyevlhj` FOREIGN KEY (`elementId`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_sfznemleofifqyvlenpywuizkbnxaafuryxc` FOREIGN KEY (`siteId`) REFERENCES `sites` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -999,7 +999,7 @@ CREATE TABLE `formie_notifications` (
   `templateId` int DEFAULT NULL,
   `pdfTemplateId` int DEFAULT NULL,
   `name` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
-  `handle` varchar(64) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `handle` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT '1',
   `subject` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `recipients` enum('email','conditions') CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL DEFAULT 'email',
@@ -1248,15 +1248,15 @@ CREATE TABLE `formie_sentnotifications` (
   `formId` int DEFAULT NULL,
   `submissionId` int DEFAULT NULL,
   `notificationId` int DEFAULT NULL,
-  `subject` text COLLATE utf8mb3_unicode_ci,
-  `to` text COLLATE utf8mb3_unicode_ci,
-  `cc` text COLLATE utf8mb3_unicode_ci,
-  `bcc` text COLLATE utf8mb3_unicode_ci,
-  `replyTo` text COLLATE utf8mb3_unicode_ci,
-  `replyToName` text COLLATE utf8mb3_unicode_ci,
-  `from` text COLLATE utf8mb3_unicode_ci,
-  `fromName` text COLLATE utf8mb3_unicode_ci,
-  `sender` text COLLATE utf8mb3_unicode_ci,
+  `subject` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `to` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `cc` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `bcc` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `replyTo` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `replyToName` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `from` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `fromName` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `sender` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `body` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `htmlBody` mediumtext CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
   `info` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
@@ -1357,7 +1357,7 @@ CREATE TABLE `formie_submissions` (
   CONSTRAINT `fk_ftzjtdncqbvgmiyxacgjszsznangrqrulwjf` FOREIGN KEY (`statusId`) REFERENCES `formie_statuses` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_tgbospthuuwwobuzslsllkpgupoqvnymdaxt` FOREIGN KEY (`id`) REFERENCES `elements` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_vojikgyizlsgnuybgjfcqntfailqmqkxwatq` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1721,7 +1721,7 @@ CREATE TABLE `queue` (
   PRIMARY KEY (`id`),
   KEY `idx_jnkaocmtmnmooktachttlfqkttaykvhfctpk` (`channel`,`fail`,`timeUpdated`,`timePushed`),
   KEY `idx_ekyyyvnesqqgxohaqnhkghzdhwqobmxjarjm` (`channel`,`fail`,`timeUpdated`,`delay`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1895,7 +1895,7 @@ CREATE TABLE `sessions` (
   KEY `idx_nqhovpqulvmdutqvynsezvnorxhhqnxxybjl` (`dateUpdated`),
   KEY `idx_jwjxtrtvyxecpzihnlrfnmwycnyqrzbneolf` (`userId`),
   CONSTRAINT `fk_upveihnwvnbwkluowedopxiruacukoixdvuj` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2369,7 +2369,7 @@ CREATE TABLE `widgets` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-03  9:39:18
+-- Dump completed on 2024-06-06 21:41:59
 -- MariaDB dump 10.19  Distrib 10.11.6-MariaDB, for debian-linux-gnu (aarch64)
 --
 -- Host: db    Database: db
@@ -2608,7 +2608,8 @@ INSERT INTO `elements` VALUES
 (17,NULL,NULL,NULL,4,'craft\\elements\\Tag',1,0,'2021-08-07 11:34:44','2021-08-07 11:34:44',NULL,NULL,'d80cfb3e-c270-4466-944b-c19b44f0626f'),
 (19,NULL,NULL,NULL,10,'verbb\\formie\\elements\\Form',1,0,'2023-09-02 11:34:09','2023-09-02 11:34:09',NULL,NULL,'7ddcdd30-9076-4648-8741-6feacee33815'),
 (20,NULL,NULL,NULL,13,'verbb\\formie\\elements\\Form',1,0,'2023-09-02 11:34:24','2023-09-02 11:34:24',NULL,NULL,'a804f03c-9345-4aba-9c7e-e49a54f390c1'),
-(21,NULL,NULL,NULL,10,'verbb\\formie\\elements\\Submission',1,0,'2024-06-02 17:22:24','2024-06-02 17:22:24',NULL,NULL,'74198758-bbb2-4cb8-89f8-6e7423ec46b7');
+(21,NULL,NULL,NULL,10,'verbb\\formie\\elements\\Submission',1,0,'2024-06-02 17:22:24','2024-06-02 17:22:24',NULL,NULL,'74198758-bbb2-4cb8-89f8-6e7423ec46b7'),
+(22,NULL,NULL,NULL,10,'verbb\\formie\\elements\\Submission',1,0,'2024-06-03 16:27:45','2024-06-03 16:27:45',NULL,NULL,'003425c4-750d-413f-8477-dc5e78626b29');
 /*!40000 ALTER TABLE `elements` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -2639,7 +2640,8 @@ INSERT INTO `elements_sites` VALUES
 (17,17,1,'tag-3',NULL,1,'2021-08-07 11:34:44','2021-08-07 11:34:44','a7c8b47e-8026-487c-b8fa-babe1de7b068'),
 (19,19,1,NULL,NULL,1,'2023-09-02 11:34:09','2023-09-02 11:34:09','7b224618-8b41-446a-9442-2d328f9f1e87'),
 (20,20,1,NULL,NULL,1,'2023-09-02 11:34:24','2023-09-02 11:34:24','4bfec335-c7b1-45bb-aeff-f5691af45236'),
-(21,21,1,NULL,NULL,1,'2024-06-02 17:22:24','2024-06-02 17:22:24','dd5120c2-aa27-4848-807f-d8196d456439');
+(21,21,1,NULL,NULL,1,'2024-06-02 17:22:24','2024-06-02 17:22:24','dd5120c2-aa27-4848-807f-d8196d456439'),
+(22,22,1,NULL,NULL,1,'2024-06-03 16:27:45','2024-06-03 16:27:45','8d45d2cc-021a-457a-9e2f-d1ce866d8bef');
 /*!40000 ALTER TABLE `elements_sites` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -2955,7 +2957,8 @@ LOCK TABLES `fmc_contactform` WRITE;
 /*!40000 ALTER TABLE `fmc_contactform` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `fmc_contactform` VALUES
-(1,21,1,'2024-06-02 17:22:24','2024-06-02 17:22:24','a70e6d95-f8e6-454a-b8f0-4c24d224c84a','{\"prefix\":null,\"firstName\":\"Jada\",\"middleName\":null,\"lastName\":\"Lindsay\",\"name\":null,\"isMultiple\":null}','dopety@mailinator.com','Ab dignissimos repel');
+(1,21,1,'2024-06-02 17:22:24','2024-06-02 17:22:24','a70e6d95-f8e6-454a-b8f0-4c24d224c84a','{\"prefix\":null,\"firstName\":\"Jada\",\"middleName\":null,\"lastName\":\"Lindsay\",\"name\":null,\"isMultiple\":null}','dopety@mailinator.com','Ab dignissimos repel'),
+(2,22,1,'2024-06-03 16:27:45','2024-06-03 16:27:45','29210345-1aba-4412-9979-933f2090c619','{\"prefix\":null,\"firstName\":\"Rhea\",\"middleName\":null,\"lastName\":\"Burris\",\"name\":null,\"isMultiple\":null}','daciwyl@mailinator.com','Obcaecati enim ab ad');
 /*!40000 ALTER TABLE `fmc_contactform` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3247,7 +3250,8 @@ LOCK TABLES `formie_submissions` WRITE;
 /*!40000 ALTER TABLE `formie_submissions` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `formie_submissions` VALUES
-(21,'2024-06-02 10:22:24',19,1,NULL,0,0,NULL,NULL,'[]',NULL,'2024-06-02 17:22:24','2024-06-02 17:22:24','23bbd2a4-b647-4ac5-9001-7c2596e1261d');
+(21,'2024-06-02 10:22:24',19,1,NULL,0,0,NULL,NULL,'[]',NULL,'2024-06-02 17:22:24','2024-06-02 17:22:24','23bbd2a4-b647-4ac5-9001-7c2596e1261d'),
+(22,'2024-06-03 09:27:45',19,1,NULL,0,0,NULL,NULL,'[]',NULL,'2024-06-03 16:27:45','2024-06-03 16:27:45','4d583c61-d897-4963-81a1-a748462d70a8');
 /*!40000 ALTER TABLE `formie_submissions` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3319,7 +3323,7 @@ LOCK TABLES `gqltokens` WRITE;
 /*!40000 ALTER TABLE `gqltokens` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `gqltokens` VALUES
-(1,'Public Token','__PUBLIC__',1,NULL,'2024-06-02 17:26:55',NULL,'2021-08-07 00:49:15','2024-06-02 17:26:55','0c1070db-f4fc-44de-9ce3-fb25e555cc99');
+(1,'Public Token','__PUBLIC__',1,NULL,'2024-06-03 16:28:18',NULL,'2021-08-07 00:49:15','2024-06-03 16:28:18','0c1070db-f4fc-44de-9ce3-fb25e555cc99');
 /*!40000 ALTER TABLE `gqltokens` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -3343,7 +3347,7 @@ LOCK TABLES `info` WRITE;
 /*!40000 ALTER TABLE `info` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `info` VALUES
-(1,'4.9.5','4.5.3.0',0,'lirsetpazkem','3@dzfqwpwgkj','2021-08-07 00:01:41','2024-05-30 13:30:44','cd697dc7-510f-48ee-a6ae-505ce136a4bb');
+(1,'4.9.7','4.5.3.0',0,'lirsetpazkem','3@dzfqwpwgkj','2021-08-07 00:01:41','2024-06-06 21:41:42','cd697dc7-510f-48ee-a6ae-505ce136a4bb');
 /*!40000 ALTER TABLE `info` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4243,7 +4247,12 @@ INSERT INTO `searchindex` VALUES
 (21,'slug',0,1,''),
 (21,'field',40,1,' jada lindsay '),
 (21,'field',41,1,' dopety mailinator com '),
-(21,'field',42,1,' ab dignissimos repel ');
+(21,'field',42,1,' ab dignissimos repel '),
+(22,'title',0,1,' 2024 06 03 09 27 45 '),
+(22,'slug',0,1,''),
+(22,'field',40,1,' rhea burris '),
+(22,'field',41,1,' daciwyl mailinator com '),
+(22,'field',42,1,' obcaecati enim ab ad ');
 /*!40000 ALTER TABLE `searchindex` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4478,7 +4487,7 @@ LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 set autocommit=0;
 INSERT INTO `users` VALUES
-(1,'formie','Formie Demo',NULL,'Formie','Demo','demo@verbb.io','$2y$13$bWBMDbFNp3g0cg1kbQ1FFua89/amjEnaByfoyh2ItwzzCrBV0IVs2',1,1,0,0,0,'2024-06-03 09:38:17',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2021-08-07 00:01:42','2021-08-07 00:01:42','2024-06-03 09:38:17');
+(1,'formie','Formie Demo',NULL,'Formie','Demo','demo@verbb.io','$2y$13$bWBMDbFNp3g0cg1kbQ1FFua89/amjEnaByfoyh2ItwzzCrBV0IVs2',1,1,0,0,0,'2024-06-06 21:41:01',NULL,NULL,NULL,NULL,NULL,1,NULL,NULL,NULL,0,'2021-08-07 00:01:42','2021-08-07 00:01:42','2024-06-06 21:41:01');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 commit;
@@ -4539,4 +4548,4 @@ commit;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-06-03  9:39:18
+-- Dump completed on 2024-06-06 21:42:00
